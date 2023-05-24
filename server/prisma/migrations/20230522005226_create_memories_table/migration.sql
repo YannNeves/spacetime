@@ -22,11 +22,11 @@ PRAGMA foreign_keys=OFF;
 CREATE TABLE "new_User" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "githubId" INTEGER NOT NULL,
-    "nome" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
     "login" TEXT NOT NULL,
     "avatarUrl" TEXT NOT NULL
 );
-INSERT INTO "new_User" ("id", "nome") SELECT "id", "nome" FROM "User";
+INSERT INTO "new_User" ("id", "name") SELECT "id", "name" FROM "User";
 DROP TABLE "User";
 ALTER TABLE "new_User" RENAME TO "User";
 CREATE UNIQUE INDEX "User_githubId_key" ON "User"("githubId");
